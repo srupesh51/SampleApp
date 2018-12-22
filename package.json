@@ -1,0 +1,37 @@
+{
+  "name": "react-chat-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "client-install": "npm install --prefix client",
+    "start": "node index.js",
+    "server": "nodemon index.js",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "chat-postbuild": "cross-env NODE_ENV=production npm install --prefix client && npm run build --prefix client",
+    "deploy": "node deploy"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^3.0.2",
+    "body-parser": "^1.18.3",
+    "circular-json": "^0.5.9",
+    "concurrently": "^4.0.1",
+    "cors": "^2.8.5",
+    "cross-env": "^5.2.0",
+    "express": "^4.16.4",
+    "ftp-deploy": "^2.1.4",
+    "ftp-deploy-package": "^0.6.0",
+    "http-proxy-middleware": "^0.19.1",
+    "mongoose": "^5.3.11",
+    "object-to-json": "0.0.5",
+    "progress": "^2.0.1",
+    "socket.io": "^2.1.1",
+    "uuid": "^3.3.2"
+  },
+  "devDependencies": {
+    "node-local-tunnel": "^0.1.8"
+  }
+}
