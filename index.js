@@ -24,7 +24,9 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 const db = require('./config/keys').mongoURI;
 mongoose.connect(db, {useNewUrlParser: true}).then(() => console.log('MongoDB Connected')).catch(err => console.log(err));
-
+app.get('/', (req,res) => {
+	res.send('Hello World');	
+});
 
 app.use('/api/messages',messages);
 app.use('/api/users',users);
@@ -35,7 +37,7 @@ if(process.env.NODE_ENV === 'production'){
     res.sendFile(path.resolve(__dirname,'client','build','index.html'));
   });
 }
-const port = process.env.PORT | 9000;
+const port = process.env.PORT;
 
 const server = app.listen(port);
 
